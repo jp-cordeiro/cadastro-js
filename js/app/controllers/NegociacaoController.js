@@ -28,8 +28,6 @@ class NegociacaoController{
 
         this._mensagem.texto = "Negociação adicionada com sucesso.";
         this._mensagemView.update(this._mensagem);
-
-        console.log(this._listaNegociacoes.negociacoes)
     }
 
     apagar(){

@@ -57,6 +57,18 @@
     <script>
         let negociacaoCtrl = new NegociacaoController();
 
+        let lista = new Proxy(new ListaNegociacoes(new Date(),1,100),{
+            get(target,prop,receiver){
+                console.log(target,prop,receiver)
+                //Retorna a leitura do target (objeto original), prop (propriedade acessada) e receiver (referência ao proxy)
+                return Reflect.get(target,prop,receiver)
+            },
+            set(target,prop,value,receiver){
+                return Reflect.get(target,prop,value,receiver)
+            }
+        })
+
+       console.log(lista.volume)
     </script>
 </body>
 </html>
