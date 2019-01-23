@@ -1,10 +1,12 @@
 class ListaNegociacoes{
-    constructor(){
+    constructor(handler){
         this._negociacoes = [];
+        this._handler = handler
     }
 
     adicona(negociacao){
         this._negociacoes.push(negociacao)
+        this._handler(this);
     }
 
     get negociacoes(){
@@ -14,5 +16,6 @@ class ListaNegociacoes{
 
     esvazia(){
         this._negociacoes = [];
+        this._handler(this);
     }
 }
